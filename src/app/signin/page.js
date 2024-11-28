@@ -12,6 +12,7 @@ const Page = () => {
     e.preventDefault(); // Prevents the default form submission behavior
     const result = await loginUserAction(signInFormData);
     console.log(result);
+    alert(result.message);
     if (result?.success) {
       router.push("/"); // Redirect to home page on success
     }

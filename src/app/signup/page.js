@@ -6,7 +6,7 @@ import { registerUserAction } from '@/actions';
 
 const Page = () => {
   const [signUpFormData, setSignUpFormData] = useState({ fname: "", lname: "", email: "", password: "" });
-  const router = useRouter();
+  
 
   function handleSignUpBtnValid() {
     return Object.keys(signUpFormData).every(
@@ -18,6 +18,7 @@ const Page = () => {
     e.preventDefault(); // Prevent the default form submission behavior
     const result = await registerUserAction(signUpFormData);
     console.log(result);
+    alert(result.message)
     if (result?.data) {
       router.push("/signin");
     }
